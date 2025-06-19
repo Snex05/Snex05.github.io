@@ -1,57 +1,82 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>โปรไฟล์แนะนำตัว</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f0f8ff;
-            margin: 0;
-            padding: 20px;
-        }
-        .profile-container {
-            max-width: 600px;
-            margin: auto;
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .profile-img {
-            width: 150px;
-            border-radius: 50%;
-            display: block;
-            margin: 0 auto 20px auto;
-        }
-        h1, h2 {
-            text-align: center;
-        }
-        p {
-            line-height: 1.6;
-        }
-        a {
-            color: #1a0dab;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>โปรไฟล์แนะนำตัว</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Kanit', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #74ebd5, #acb6e5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .profile-card {
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      padding: 30px;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid #74ebd5;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin: 10px 0 5px 0;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      color: #555;
+      margin: 0 0 20px 0;
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="profile-container">
-        <img src="Snex01.jpg" alt="รูปโปรไฟล์" class="profile-img">
-        <h1>นาย วัชชิระ ฟองคำ</h1>
-        <h2>นักศึกษาวิทยาการคอมพิวเตอร์</h2>
-        <p><strong>สถาบัน:</strong> มหาวิทยาลัยราชภัฎอุดรธานี</p>
-        <p><strong>อีเมล:</strong> snexwatchira@gmail.com</p>
-        <p><strong>Facebook:</strong> <a href="https://www.facebook.com/watchira.fongcham?locale=th_TH"_blank">Watchira Fongkam</a></p>
-        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/_snexx/"_blank">@_Snexx</a></p>
-        <p><strong>เบอร์โทร:</strong> 081-234-5678</p>
-    </div>
+  <div class="profile-card">
+    <img src="Snex01.jpg" alt="รูปโปรไฟล์" class="profile-img">
+    <h1>สมชาย ใจดี</h1>
+    <h2>นักศึกษาวิทยาการคอมพิวเตอร์</h2>
+    <p><strong>สถาบัน:</strong> มหาวิทยาลัยราชภัฎอุดรธานี </p>
+    <p><strong>อีเมล:</strong> snexwatchira@gmail.com </p>
+    <p><strong>Facebook:</strong> <a href="https://www.facebook.com/watchira.fongcham?locale=th_TH" target="_blank">Watchira Fongkam</a></p>
+    <p><strong>Instagram:</strong> <a href="https://www.instagram.com/_snexx/" target="_blank">@_snexx</a></p>
+    <p><strong>เบอร์โทร:</strong> 063-329-2447 </p>
+  </div>
 
 </body>
 </html>
+
