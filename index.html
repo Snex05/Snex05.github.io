@@ -1,83 +1,147 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>โปรไฟล์แนะนำตัว</title>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>หน้าแรก GitHub.io - Student Portfolio</title>
+  <meta name="description" content="Portfolio template for students (AI, Web, Data)">
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Kanit', sans-serif;
-    }
+    :root{--bg:#fbfbfc;--card:#ffffff;--muted:#666;--accent:#e53935;--glass:rgba(255,255,255,0.6)}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; background:linear-gradient(180deg,#fff,#f3f6f9); color:#111}
+    .container{max-width:1100px;margin:32px auto;padding:24px}
+    header{display:flex;gap:20px;align-items:center}
+    .avatar{width:110px;height:110px;border-radius:14px;overflow:hidden;flex:0 0 110px;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    h1{font-size:28px;margin:0}
+    .subtitle{color:var(--muted);margin-top:8px}
 
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom right, #74ebd5, #acb6e5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+    nav{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+    nav a{padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--muted);border:1px solid transparent;font-size:14px}
+    nav a:hover{border-color:#eee;color:#111}
 
-    .profile-card {
-      background-color: white;
-      border-radius: 20px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-      padding: 30px;
-      max-width: 400px;
-      text-align: center;
-    }
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:20px}
+    @media (max-width:860px){.grid{grid-template-columns:1fr}}
 
-    .profile-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-      border: 4px solid #74ebd5;
-    }
+    /* main column */
+    .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 6px 20px rgba(17,24,39,0.06)}
+    section{margin-bottom:18px}
+    h2{margin:0 0 10px 0;color:var(--accent);font-size:18px}
+    p{color:var(--muted);line-height:1.45}
 
-    h1 {
-      font-size: 1.8rem;
-      margin: 10px 0 5px 0;
-    }
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{background:var(--glass);padding:8px 10px;border-radius:999px;font-size:13px;border:1px solid rgba(0,0,0,0.04)}
 
-    h2 {
-      font-size: 1.2rem;
-      color: #555;
-      margin: 0 0 20px 0;
-    }
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    @media (max-width:560px){.projects{grid-template-columns:1fr}}
+    .proj{padding:12px;border-radius:10px;border:1px solid #f0f0f0}
+    .proj h3{margin:0 0 6px 0;font-size:15px}
+    .proj p{margin:0;font-size:13px;color:var(--muted)}
+    .proj .meta{margin-top:8px;display:flex;gap:8px;align-items:center}
+    .btn{display:inline-block;padding:8px 10px;border-radius:8px;text-decoration:none;border:1px solid #ddd;font-size:13px}
 
-    p {
-      margin: 8px 0;
-    }
+    aside .card{position:sticky;top:24px}
+    .contact{display:flex;flex-direction:column;gap:8px}
+    footer{text-align:center;color:var(--muted);padding:20px 0;font-size:13px}
 
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
+    /* small helper */
+    .muted{color:var(--muted)}
+    .badge{display:inline-block;padding:4px 8px;border-radius:6px;background:#f5f7fb;border:1px solid #eef4ff;font-size:12px}
 
-    a:hover {
-      text-decoration: underline;
-    }
+    /* code comments visible to user only (do not remove) */
+    /*
+      HOW TO EDIT: replace the placeholder texts below (NAME, ROLE, etc.) with your info.
+      - Projects array in the <script> block contains sample objects for quick editing.
+      - To change profile image, replace src in <img id="avatar">.
+      - Save file as index.html and push to a repo named <username>.github.io to deploy.
+    */
   </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <div class="avatar"><img id="avatar" src="SNX.jpg" alt="Profile"></div>
+      <div>
+        <h1 id="fullname">นาย วัชชิระ ฟองคำ — <span class="muted" id="role">Computer Science Student</span></h1>
+        <div class="subtitle">คณะ: <span id="faculty">คณะวิทยาศาสตร์</span> • สาขา: <span id="major">วิทยาการคอมพิวเตอร์</span> • ปีการศึกษา: <span id="year">ปี 2</span></div>
+        <nav>
+          <a href="#profile">แนะนำตัว</a>
+          <a href="#skills">ทักษะ</a>
+          <a href="#projects">ผลงาน</a>
+          <a href="#education">การศึกษา</a>
+          <a href="#activities">กิจกรรม</a>
+          <a href="#contact">ติดต่อ</a>
+        </nav>
+      </div>
+    </header>
 
-  <div class="profile-card">
-    <img src="Snex01.jpg" alt="รูปโปรไฟล์" class="profile-img">
-    <h1>วัชชิระ ฟองคำ</h1>
-    <h2>นักศึกษาวิทยาการคอมพิวเตอร์</h2>
-    <p><strong>สถาบัน:</strong> มหาวิทยาลัยราชภัฎอุดรธานี </p>
-    <p><strong>อีเมล:</strong> snexwatchira@gmail.com </p>
-    <p><strong>Facebook:</strong> <a href="https://www.facebook.com/watchira.fongcham?locale=th_TH" target="_blank">Watchira Fongkam</a></p>
-    <p><strong>Instagram:</strong> <a href="https://www.instagram.com/_snexx/" target="_blank">@_snexx</a></p>
-    <p><strong>เบอร์โทร:</strong> 063-329-2447 </p>
-    <p><strong>GitHub:</strong> <a herf = "https:/www.github.com/Snex05" target="_blank" MyGitHub > </a></p>
+    <div class="grid">
+      <main>
+        <div class="card" id="profile">
+          <h2>1. แนะนำตัว (Introduction / Profile)</h2>
+          <p>สวัสดีครับ <strong id="intro_name"> นาย วัชชิระ ฟองคำ </strong> เป็นนักศึกษาสาขาวิทยาการคอมพิวเตอร์ สนใจด้าน <span id="interest">AI, Web Dev, Data Science</span> โดยเฉพาะเรื่อง <span id="interest_detail">Machine Learning และ Data Visualization</span>. ปัจจุบันกำลังมองหาประสบการณ์การทำโปรเจกต์จริงและโอกาสฝึกงานในสายงานที่เกี่ยวข้อง.</p>
+        </div>
+
+        <div class="card" id="skills">
+          <h2>2. ทักษะ (Skills)</h2>
+          <div style="margin-bottom:8px">Programming</div>
+          <div class="skills" id="skill_list">
+            <div class="chip">Python</div>
+            <div class="chip">Java</div>
+            <div class="chip">HTML/CSS</div>
+            <div class="chip">JavaScript</div>
+            <div class="chip">SQL</div>
+            <div class="chip">VS Code</div>
+          </div>
+          <h2 style="margin-top:14px">Soft Skills</h2>
+          <p class="muted">การสื่อสาร, การทำงานเป็นทีม, การแก้ปัญหา</p>
+        </div>
+
+        <div class="card" id="projects">
+          <h2>3. ผลงานที่ผ่านมา (Projects / Portfolio)</h2>
+          <img src="P1.jpg" alt="ผลงาน" width="450" height="300">
+      <h2>
+        รางวัลรองชนะเลิศอันดับ 2<br>
+        การพัฒนาโปรแกรม AI - Machine Learning
+      </h2>
+        </div>
+
+        <div class="card" id="education">
+          <h2>4. การศึกษา (Education)</h2>
+          <p><strong id="edu_school">มหาวิทยาลัยราชภัฏอุดรธานี</strong><br>
+          สาขา: <span id="edu_major">วิทยาการคอมพิวเตอร์</span><br>
+          ปีการศึกษา: <span id="edu_year">2567 – ปัจจุบัน</span></p>
+        </div>
+
+        <div class="card" id="activities">
+          <h2>5. กิจกรรมและผลงานอื่น ๆ (Activities / Achievements)</h2>
+          <ul class="muted">
+            <li id="act1">เข้าร่วมอบรม "พัฒนาทักษะดภาษาอังกฤษ CEFR ระดับ B1"</li>
+            <li id="act2">เข้าร่วมกิจกรรมต่างๆในมหาวิทยาลัยราชภัฏอุดรธานี</li>
+          </ul>
+        </div>
+
+        <div class="card" id="goal">
+          <h2>7. องค์ประกอบเสริม (Career Interest)</h2>
+          <p class="muted">เป้าหมาย: <span id="career_goal">Intern / Junior Data Scientist / Web Developer</span></p>
+        </div>
+
+      </main>
+
+      <aside>
+        <div class="card">
+          <h2>6. ติดต่อ (Contact)</h2>
+          <div class="contact">
+            <div>Email: <a id="email_link" href="mailto:snexwatchira@email">snexwatchira@email</a></div>
+            <div>GitHub: <a id="github_link" href="https://github.com/Snex05">github.com/Snex05</a></div>
+            <div>Facebook: <a id="facebook_link" href="https://www.facebook.com/watchira.fongcham?locale=th_TH">watchira.fongcham</a></div>
+            <div>Tel: 063-329-2447 </div>
+          </div>
+        </div>
+
+      </aside>
+    </div>
   </div>
 
 </body>
 </html>
-
