@@ -1,176 +1,989 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>หน้าแรก GitHub.io - Student Portfolio</title>
-  <meta name="description" content="Portfolio template for students (AI, Web, Data)">
-  <style>
-    :root{--bg:#fbfbfc;--card:#ffffff;--muted:#666;--accent:#e53935;--glass:rgba(255,255,255,0.6)}
-    *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; background:linear-gradient(180deg,#fff,#f3f6f9); color:#111}
-    .container{max-width:1100px;margin:32px auto;padding:24px}
-    header{display:flex;gap:20px;align-items:center}
-    .avatar{width:110px;height:110px;border-radius:14px;overflow:hidden;flex:0 0 110px;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
-    .avatar img{width:100%;height:100%;object-fit:cover}
-    h1{font-size:28px;margin:0}
-    .subtitle{color:var(--muted);margin-top:8px}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | Portfolio</title>
 
-    nav{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
-    nav a{padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--muted);border:1px solid transparent;font-size:14px}
-    nav a:hover{border-color:#eee;color:#111}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-    .grid{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:20px}
-    @media (max-width:860px){.grid{grid-template-columns:1fr}}
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.7;
+        }
 
-    /* main column */
-    .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 6px 20px rgba(17,24,39,0.06)}
-    section{margin-bottom:18px}
-    h2{margin:0 0 10px 0;color:var(--accent);font-size:18px}
-    p{color:var(--muted);line-height:1.45}
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #334155;
+        }
 
-    .skills{display:flex;flex-wrap:wrap;gap:8px}
-    .chip{background:var(--glass);padding:8px 10px;border-radius:999px;font-size:13px;border:1px solid rgba(0,0,0,0.04)}
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
 
-    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    @media (max-width:560px){.projects{grid-template-columns:1fr}}
-    .proj{padding:12px;border-radius:10px;border:1px solid #f0f0f0}
-    .proj h3{margin:0 0 6px 0;font-size:15px}
-    .proj p{margin:0;font-size:13px;color:var(--muted)}
-    .proj .meta{margin-top:8px;display:flex;gap:8px;align-items:center}
-    .btn{display:inline-block;padding:8px 10px;border-radius:8px;text-decoration:none;border:1px solid #ddd;font-size:13px}
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
 
-    aside .card{position:sticky;top:24px}
-    .contact{display:flex;flex-direction:column;gap:8px}
-    footer{text-align:center;color:var(--muted);padding:20px 0;font-size:13px}
+        nav ul li a {
+            text-decoration: none;
+            color: #cbd5e1;
+            transition: 0.3s;
+        }
 
-    /* small helper */
-    .muted{color:var(--muted)}
-    .badge{display:inline-block;padding:4px 8px;border-radius:6px;background:#f5f7fb;border:1px solid #eef4ff;font-size:12px}
+        nav ul li a:hover {
+            color: #38bdf8;
+        }
 
-    /* code comments visible to user only (do not remove) */
-    /*
-      HOW TO EDIT: replace the placeholder texts below (NAME, ROLE, etc.) with your info.
-      - Projects array in the <script> block contains sample objects for quick editing.
-      - To change profile image, replace src in <img id="avatar">.
-      - Save file as index.html and push to a repo named <username>.github.io to deploy.
-    */
-  </style>
+        /* General Section */
+        section {
+            padding: 100px 10%;
+            scroll-margin-top: 65px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: #38bdf8;
+            margin-bottom: 40px;
+        }
+
+        /* Home */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .home-text h1 {
+            font-size: 60px;
+            color: white;
+        }
+
+        .home-text h2 {
+            color: #38bdf8;
+            margin: 10px 0;
+        }
+
+        .home-text p {
+            color: #94a3b8;
+            max-width: 550px;
+            margin: 20px 0;
+        }
+
+        .profile-img {
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            border: 4px solid #38bdf8;
+            object-fit: cover;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #0284c7;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: #0369a1;
+        }
+
+        /* About */
+        #about {
+            background: #1e293b;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            color: #cbd5e1;
+        }
+
+        /* About */
+        #about {
+            background: #1e293b;
+        }
+
+        .about-card {
+            max-width: 850px;
+            margin: auto;
+            padding: 35px;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Profile Header */
+        .about-header {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            margin-bottom: 25px;
+        }
+
+        .about-icon {
+            width: 85px;
+            height: 85px;
+            background: #1e293b;
+            border: 2px solid #38bdf8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            flex-shrink: 0;
+        }
+
+        .about-header h2 {
+            color: white;
+            font-size: 26px;
+        }
+
+        .about-header h3 {
+            color: #38bdf8;
+            font-size: 17px;
+        }
+
+        .about-header p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* Divider */
+        .about-card hr {
+            border: none;
+            border-top: 1px solid #334155;
+            margin: 25px 0;
+        }
+
+        /* Heading */
+        .about-heading h3 {
+            color: #38bdf8;
+            margin-bottom: 18px;
+            font-size: 19px;
+        }
+
+        /* Information Grid */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .about-item {
+            background: #1e293b;
+            padding: 16px;
+            border-radius: 10px;
+            border: 1px solid #334155;
+        }
+
+        .about-item span {
+            color: #38bdf8;
+            font-size: 14px;
+        }
+
+        .about-item p {
+            color: #e2e8f0;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        /* Interest */
+        .interest-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .interest-list span {
+            background: #1e293b;
+            color: #38bdf8;
+            padding: 9px 15px;
+            border-radius: 20px;
+            border: 1px solid #334155;
+            font-size: 14px;
+        }
+
+        /* Goal */
+        .about-goal {
+            color: #cbd5e1;
+            line-height: 1.9;
+            text-align: justify;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .about-card {
+                padding: 22px;
+            }
+
+            .about-header {
+                gap: 15px;
+            }
+
+            .about-header h2 {
+                font-size: 20px;
+            }
+
+            .about-icon {
+                width: 65px;
+                height: 65px;
+                font-size: 30px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full-width {
+                grid-column: span 1;
+            }
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #1e293b;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .skill-card h3 {
+            color: #38bdf8;
+        }
+
+        /* Projects */
+        #projects {
+            background: #1e293b;
+        }
+
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #0f172a;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #334155;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            color: #94a3b8;
+        }
+
+        /* Education */
+        .education-box {
+            max-width: 700px;
+            margin: auto;
+            padding: 25px;
+            background: #1e293b;
+            border-left: 4px solid #38bdf8;
+            border-radius: 8px;
+        }
+
+        /* Activities */
+        #activities {
+            background: #1e293b;
+        }
+
+        .activity-box {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            padding: 25px;
+            background: #0f172a;
+            border-radius: 12px;
+        }
+
+        /* Activities Gallery */
+        .activity-description {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 35px;
+        }
+
+        .activity-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .activity-card {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .activity-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+
+        .activity-info {
+            padding: 20px;
+        }
+
+        .activity-info h3 {
+            color: #38bdf8;
+            margin-bottom: 5px;
+        }
+
+        .activity-info p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .activity-info .activity-date {
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        /* Contact */
+        #contact {
+            background: #0f172a;
+        }
+
+        .contact-description {
+            text-align: center;
+            color: #94a3b8;
+            margin-top: -20px;
+            margin-bottom: 35px;
+        }
+
+        .contact-container {
+            max-width: 850px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 20px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+            background: #26364c;
+        }
+
+        .contact-icon {
+            font-size: 30px;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0f172a;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        .contact-card h3 {
+            color: #38bdf8;
+            font-size: 17px;
+        }
+
+        .contact-card p {
+            color: #cbd5e1;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .location-box {
+            max-width: 850px;
+            margin: 25px auto 0;
+            padding: 20px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .location-box h3 {
+            color: #38bdf8;
+        }
+
+        .location-box p {
+            color: #cbd5e1;
+        }
+
+        .contact-footer {
+            text-align: center;
+            color: #64748b;
+            margin-top: 30px;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-card {
+                padding: 15px;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            #home {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 150px;
+            }
+
+            .home-text h1 {
+                font-size: 32px;
+            }
+
+            .profile-img {
+                width: 190px;
+                height: 190px;
+            }
+
+            section {
+                padding: 80px 6%;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <div class="container">
-    <header>
-      <div class="avatar"><img id="avatar" src="SNX.jpg" alt="Profile"></div>
-      <div>
-        <h1 id="fullname">นาย วัชชิระ ฟองคำ — <span class="muted" id="role">Computer Science Student</span></h1>
-        <div class="subtitle">คณะ: <span id="faculty">คณะวิทยาศาสตร์</span> • สาขา: <span id="major">วิทยาการคอมพิวเตอร์</span> • ปีการศึกษา: <span id="year">ปี 2</span></div>
-        <nav>
-          <a href="#profile">แนะนำตัว</a>
-          <a href="#skills">ทักษะ</a>
-          <a href="#projects">ผลงาน</a>
-          <a href="#education">การศึกษา</a>
-          <a href="#activities">กิจกรรม</a>
-          <a href="#contact">ติดต่อ</a>
-        </nav>
-      </div>
-    </header>
 
-    <div class="grid">
-      <main>
-        <div class="card" id="profile">
-          <h2>1. แนะนำตัว (Introduction / Profile)</h2>
-          <p>สวัสดีครับ <strong id="intro_name"> นาย วัชชิระ ฟองคำ </strong> เป็นนักศึกษาสาขาวิทยาการคอมพิวเตอร์ สนใจด้าน <span id="interest">AI, Web Dev, Data Science</span> โดยเฉพาะเรื่อง <span id="interest_detail">Machine Learning และ Data Visualization</span>. ปัจจุบันกำลังมองหาประสบการณ์การทำโปรเจกต์จริงและโอกาสฝึกงานในสายงานที่เกี่ยวข้อง.</p>
+    <!-- Navigation Menu -->
+    <nav>
+        <div class="logo">MyPortfolio.</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#activities">Activities</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home -->
+    <section id="home">
+        <div class="home-text">
+            <h1>นาย วัชชิระ ฟองคำ</h1>
+            <h2>Computer Science Student</h2>
+            <p>
+                นักศึกษาสาขาวิทยาการคอมพิวเตอร์
+                ที่มีความสนใจด้าน Data Science,
+                Machine Learning และการพัฒนาเว็บไซต์
+                พร้อมเรียนรู้และพัฒนาทักษะใหม่ ๆ อยู่เสมอ
+            </p>
         </div>
 
-        <div class="card" id="skills">
-          <h2>2. ทักษะ (Skills)</h2>
-          <div style="margin-bottom:8px">Programming</div>
-          <div class="skills" id="skill_list">
-            <div class="chip">Python</div>
-            <div class="chip">Java</div>
-            <div class="chip">HTML/CSS</div>
-            <div class="chip">JavaScript</div>
-            <div class="chip">SQL</div>
-            <div class="chip">VS Code</div>
-          </div>
-          <h2 style="margin-top:14px">Soft Skills</h2>
-          <p class="muted">การสื่อสาร, การทำงานเป็นทีม, การแก้ปัญหา</p>
+        <div>
+            <img src="Snex01.jpg"
+                 alt="My Profile"
+                 class="profile-img">
+        </div>
+    </section>
+
+<!-- About -->
+<section id="about">
+    <h2 class="section-title">About Me</h2>
+
+    <div class="about-card">
+
+        <!-- ชื่อและแนะนำตัว -->
+        <div class="about-header">
+            <div class="about-icon">👨‍🎓</div>
+
+            <div>
+                <h2>นาย วัชชิระ ฟองคำ</h2>
+                <h3>Mr. Watchira Fongkam</h3>
+                <p>Computer Science Student</p>
+            </div>
         </div>
 
-        <div class="card" id="projects">
-          <h2>3. ผลงานที่ผ่านมา (Projects / Portfolio)</h2>
-          <img src="P1.jpg" alt="ผลงาน" width="450" height="300"> 
-          <h2>
-        รางวัลรองชนะเลิศอันดับ 2<br>
-        การพัฒนาโปรแกรม AI - Machine Learning<br>
-        ด้วยโปรแกรม PICTOBLOX หัวข้อ "มือวิเศษ"
+        <hr>
 
-         </h2> <br>
-          <img src="P2.png" alt="ผลงาน" width="450" height="300">       
-         <h2>
-        ใบประกาศนียบัตรผ่านการอบรม  <br>
-        "พัฒนาทักษะด้านภาษาอังกฤษ CEFR ระดับ B1"
-         </h2>
+        <!-- ข้อมูลส่วนตัว -->
+        <div class="about-heading">
+            <h3>📋 ข้อมูลการศึกษา</h3>
         </div>
 
-        <div class="card" id="education">
-          <h2>4. การศึกษา (Education)</h2>
-          <p><strong id="edu_school">โรงเรียนบ้านหนองบัวเงิน</strong><br>
-          ระดับชั้นประถมศึกษาปีที่: <span id="edu_major">1-6</span><br>
+        <div class="about-grid">
 
-          <p><strong id="edu_school">โรงเรียนประจักษ์ศิลปาคาร</strong><br>
-          ระดับชั้นมัธยมศึกษาตอนต้นปีที่: <span id="edu_major">1-3</span><br>
+            <div class="about-item">
+                <span>🏛️ คณะ</span>
+                <p>วิทยาศาสตร์</p>
+            </div>
 
-          <p><strong id="edu_school">โรงเรียนประจักษ์ศิลปาคาร</strong><br>
-          ระดับชั้นมัธยมศึกษาตอนปลายปีที่: <span id="edu_major">4-6</span><br>
+            <div class="about-item">
+                <span>💻 สาขาวิชา</span>
+                <p>วิทยาการคอมพิวเตอร์</p>
+            </div>
 
-          <p><strong id="edu_school">มหาวิทยาลัยราชภัฏอุดรธานี</strong><br>
-          สาขา: <span id="edu_major">วิทยาการคอมพิวเตอร์</span><br>
-          ปีการศึกษา: <span id="edu_year">2567 – ปัจจุบัน</span></p>
+            <div class="about-item">
+                <span>📊 กลุ่มวิชา</span>
+                <p>Data Science</p>
+            </div>
+
+            <div class="about-item">
+                <span>🎓 ชั้นปี</span>
+                <p>ปีที่ 3</p>
+            </div>
+
+            <div class="about-item full-width">
+                <span>🏫 มหาวิทยาลัย</span>
+                <p>มหาวิทยาลัยราชภัฏอุดรธานี</p>
+            </div>
+
         </div>
 
-        <div class="card" id="activities">
-          <h2>5. กิจกรรมและผลงานอื่น ๆ (Activities / Achievements)</h2>
-          <ul class="muted">
-            <img src="P3.JPG" width="400" height="300">
-            <li id="act1">ได้รับหน้าที่เป็นพิธีกรในกิจกรรมไหว้ครูสาขาวิทยาการคอมพิวเตอร์</li><br>
+        <hr>
 
-            <img src="P4.jpg" width="400" height="300">
-            <li id="act2">เป็นพี่เลี้ยงในการประกวดแข่งขัน Since Ambassador 2025</li><br>
-
-            <img src="P5.jpg" width="400" height="300">
-            <li id="act3">รับหน้าที่ถือป้ายสาขาในกิจกรรมกีฬาวังแดงเกมส์ปี 2567</li><br>
-
-            <img src="P6.jpg" width="400" height="300">
-            <li id="act4">เป็นหัวหน้าทีมกิจกรรม Paper Model วันวิทยาศาสตร์ของมหาวิทยาลัยราชภัฏอุดรธานี</li><br>
-
-
-            <li id="act5">อื่นๆเดี๋ยวมาใส่</li>
-
-          </ul>
+        <!-- ความสนใจ -->
+        <div class="about-heading">
+            <h3>💡 ความสนใจด้านเทคโนโลยี</h3>
         </div>
 
-        <div class="card" id="goal">
-          <h2>7. องค์ประกอบเสริม (Career Interest)</h2>
-          <p class="muted">เป้าหมาย: <span id="career_goal">Intern / Junior Data Scientist / Web Developer</span></p>
+        <div class="interest-list">
+            <span>🐍 Python Programming</span>
+            <span>🤖 Machine Learning</span>
+            <span>📈 Data Science</span>
+            <span>🌐 Web Development</span>
+            <span>📊 Data Analysis</span>
         </div>
 
-      </main>
+        <hr>
 
-      <aside>
-        <div class="card">
-          <h2>6. ติดต่อ (Contact)</h2>
-          <div class="contact">
-            <div>Email: <a id="email_link" href="mailto:snexwatchira@email">snexwatchira@email</a></div>
-            <div>GitHub: <a id="github_link" href="https://github.com/Snex05">github.com/Snex05</a></div>
-            <div>Facebook: <a id="facebook_link" href="https://www.facebook.com/watchira.fongcham?locale=th_TH">watchira.fongcham</a></div>
-            <div>Tel: 063-329-2447 </div>
-          </div>
+        <!-- เป้าหมาย -->
+        <div class="about-heading">
+            <h3>🎯 เป้าหมายและสิ่งที่สนใจ</h3>
         </div>
 
-      </aside>
+        <p class="about-goal">
+            มีความสนใจในการศึกษาและพัฒนาความรู้
+            ด้านวิทยาการคอมพิวเตอร์ โดยเฉพาะ Data Science
+            และ Machine Learning เพื่อเรียนรู้การนำเทคโนโลยี
+            มาประยุกต์ใช้ในการวิเคราะห์ข้อมูลและแก้ไขปัญหาจริง
+            พร้อมพัฒนาทักษะและประสบการณ์อย่างต่อเนื่อง
+        </p>
+
     </div>
-  </div>
+</section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <h2 class="section-title">My Skills</h2>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+                <h3>Python</h3>
+                <p>Programming</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Machine Learning</h3>
+                <p>KNN, SVM, Decision Tree</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Data Science</h3>
+                <p>Data Analysis</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>HTML & CSS</h3>
+                <p>Web Development</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>SQL</h3>
+                <p>Database</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Tools</h3>
+                <p>VS Code, Google Colab</p>
+            </div>
+        </div> <br>
+        
+        <h2 class="section-title">Soft Skills</h2>
+        <div class="skills-container">
+
+            <div class="skill-card">
+                <h3>communication</h3>
+                <p>การสื่อสาร การทำงานเป็นทีม และการทำงานร่วมกับผู้อื่น</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2 class="section-title">My Projects</h2>
+
+        <div class="project-container">
+
+            <div class="project-card">
+                <img src="Bank.jpeg" alt="Loan Approval">
+                <div class="project-info">
+                    <h3>Loan Approval Prediction</h3>
+                    <p>
+                        ระบบจำแนกและทำนายผลการอนุมัติสินเชื่อ
+                        ด้วย Machine Learning
+                    </p>
+                    <p>Python / KNN / SVM / Decision Tree / Naive Bayes</p>
+                    <a href="https://loanapprovalclassification-xcv4ptbukan368b3h5mmav.streamlit.app/"target="_blank"rel="noopener noreferrer"class="btn">
+            View Project ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="Flower.jpeg" alt="Flower Species Classifier">
+                <div class="project-info">
+                    <h3>Flower Species Classifier</h3>
+                    <p>
+                        ระบบจำแนกชนิดของดอกไม้
+                        ด้วย Machine Learning
+                    </p>
+                    <p>Python / Support Vector Machine (SVM) + RBF Kernel + GridSearchCV </p>
+                    <a href="https://flower-svm-app-q59vzgzes8pwhvgljbzd7b.streamlit.app/"target="_blank"rel="noopener noreferrer"class="btn">
+            View Project ↗
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+
+        <div class="education-box">
+            <h3>📚ระดับชั้นอนุบาล-ประถมศึกษา</h3>
+            <p>โรงเรียนบ้านหนองบัวเงินหนองบัวทอง</p>
+            <br>
+
+            <h3>🏫ระดับชั้นมัธยมศึกษาตอนต้น</h3>
+            <p>โรงเรียนประจักษ์ศิลปาคาร</p>
+            <br>
+
+            <h3>🏫ระดับชั้นมัธยมศึกษาตอนปลาย</h3>
+            <p>โรงเรียนประจักษ์ศิลปาคาร</p>
+            <br>
+
+            <h3>🎓ระดับปริญญาตรี</h3>
+            <p>คณะวิทยาศาสตร์</p>
+            <p>สาขาวิทยาการคอมพิวเตอร์</p>
+            <p>กลุ่มวิชา Data Science</p>
+            <p>มหาวิทยาลัย : มหาวิทยาลัยราชภัฏอุดรธานี</p>
+            <br>
+        </div>
+    </section>
+
+
+<!-- Activities -->
+<section id="activities">
+    <h2 class="section-title">Activities & Experiences</h2>
+
+    <p class="activity-description">
+        รวบรวมกิจกรรม ประสบการณ์ และการเข้าร่วมงานต่าง ๆ
+        ที่ได้เรียนรู้และพัฒนาตนเองระหว่างการศึกษา
+    </p>
+
+    <div class="activity-container">
+
+                <!-- Activity 1 -->
+        <div class="activity-card">
+            <img src="certificate2.png" alt="กิจกรรมที่ 1">
+
+            <div class="activity-info">
+                <h3>เกียรติบัตร</h3>
+                <p class="activity-date">ปี พ.ศ. 2568</p>
+                <p>
+                    ได้รับการสอบผ่านภาษาอังกฤษในระดับ B1 
+                </p>
+            </div>
+        </div>
+
+                <!-- Activity 2 -->
+        <div class="activity-card">
+            <img src="certificate1.jpg" alt="กิจกรรมที่ 2">
+
+            <div class="activity-info">
+                <h3>เกียรติบัตร</h3>
+                <p class="activity-date">ปี พ.ศ. 2568</p>
+                <p>
+                    ได้รับรางวัลรองชนะเลิศอันดับ 2 การพัฒนาโปรแกรม AI-Machine Learning
+                    โดยใช้โมเดล Deep Learning เพื่อตรวจจับและแยกประเภท Hand Pose Classifier
+                    ด้วยโปรแกรม Pictoblox Ai หัวข้อ "มือวิเศษ"
+                </p>
+            </div>
+        </div>
+
+        <!-- Activity 3 -->
+        <div class="activity-card">
+            <img src="WangDaeng.jpg" alt="กิจกรรมที่ 3">
+
+            <div class="activity-info">
+                <h3>วังแดงเกมส์ ครั้งที่34</h3>
+                <p class="activity-date">ปี พ.ศ. 2567</p>
+                <p>
+                    ได้เข้าร่วมกิจกรรมการแข่งขันกีฬาภายในมหาวิทยาลัย
+                    ได้ร่วมเดินขบวน และรับหน้าที่เป็นผู้นำในการจัดกิจกรรม
+                    รวมถึงรับหน้าที่เป็นผู้แทนสาขาวิทยาการคอมพิวเตอร์
+                </p>
+            </div>
+        </div>
+
+        <!-- Activity 4 -->
+        <div class="activity-card">
+            <img src="mentor2.jpg" alt="กิจกรรมที่ 4">
+
+            <div class="activity-info">
+                <h3>วันวิทยาศาสตร์</h3>
+                <p class="activity-date">ปี พ.ศ. 2567</p>
+                <p>
+                    ได้ร่วมกิจกรรมวันวิทยาศาสตร์
+                    ได้รับหน้าที่เป็นผู้ช่วยสอนและเฝ้าดูแลนักเรียนที่เข้าร่วมกิจกรรม
+                </p>
+            </div>
+        </div>
+
+        <!-- Activity 5 -->
+        <div class="activity-card">
+            <img src="speaker.jpeg" alt="กิจกรรมที่ 5">
+
+            <div class="activity-info">
+                <h3>พิธีกรวันไหว้ครู</h3>
+                <p class="activity-date">ปี พ.ศ. 2568</p>
+                <p>
+                    ได้รับหน้าที่เป็นพิธีกรในงานวันไหว้ครูของสาขาวิทยาการคอมพิวเตอร์
+                </p>
+            </div>
+        </div>
+
+        <!-- Activity 6 -->
+        <div class="activity-card">
+            <img src="design1.jpeg" alt="กิจกรรมที่ 6">
+
+            <div class="activity-info">
+                <h3>ออกแบบซุ้มงานรับปริญญา</h3>
+                <p class="activity-date">ปี พ.ศ. 2569</p>
+                <p>
+                    ได้รับหน้าที่เป็นผู้ออกแบบซุ้มงานรับปริญญาของสาขาวิทยาการคอมพิวเตอร์
+                    และเป็นเฮดดีไซน์เนอร์ในการออกแบบซุ้มงานรับปริญญา
+                </p>
+            </div>
+        </div>
+
+        <!-- Activity 7 -->
+        <div class="activity-card">
+            <img src="design2.jpg" alt="กิจกรรมที่ 7">
+
+            <div class="activity-info">
+                <h3>ออกแบบซุ้มงานบายเนียร์รุ่นพี่</h3>
+                <p class="activity-date">ปี พ.ศ. 2569</p>
+                <p>
+                    ได้รับหน้าที่เป็นผู้ออกแบบซุ้มงานบายเนียร์รุ่นพี่ของสาขาวิทยาการคอมพิวเตอร์
+                    และเป็นเฮดดีไซน์เนอร์ในการออกแบบซุ้มงานบายเนียร์
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Contact -->
+<section id="contact">
+    <h2 class="section-title">📬 Contact Me</h2>
+
+    <p class="contact-description">
+        ช่องทางการติดต่อและติดตามผลงานของฉัน
+    </p>
+
+    <div class="contact-container">
+
+        <!-- Email -->
+        <a href="mailto:snewatchira@gmail.com"
+           class="contact-card">
+            <div class="contact-icon">📧</div>
+            <div>
+                <h3>Email</h3>
+                <p>snewatchira@gmail.com</p>
+            </div>
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/watchira.fongcham?locale=th_TH" target="_blank"
+           class="contact-card">
+            <div class="contact-icon">📘</div>
+            <div>
+                <h3>Facebook</h3>
+                <p>Watchira Fongcham</p>
+            </div>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/_snexx/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="contact-card">
+            <div class="contact-icon">📸</div>
+            <div>
+                <h3>Instagram</h3>
+                <p>_snexx</p>
+            </div>
+        </a>
+
+        <!-- Line -->
+        <div class="contact-card">
+            <div class="contact-icon">💬</div>
+            <div>
+                <h3>Line ID</h3>
+                <p>0633292447</p>
+            </div>
+        </div>
+
+        <!-- GitHub -->
+        <a href="https://github.com/Snex05"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="contact-card">
+            <div class="contact-icon">💻</div>
+            <div>
+                <h3>GitHub</h3>
+                <p>Snex05</p>
+            </div>
+        </a>
+
+        <!-- Phone -->
+        <a href="tel:0633292447"
+           class="contact-card">
+            <div class="contact-icon">📱</div>
+            <div>
+                <h3>Phone</h3>
+                <p>063-329-2447</p>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- Location -->
+    <div class="location-box">
+        <h3>📍 Location</h3>
+        <p>อุดรธานี ประเทศไทย</p>
+    </div>
+
+    <p class="contact-footer">
+        ✨ Feel free to contact me!
+    </p>
+</section>
+
+    
+    <footer>
+        <p>© 2026 My Portfolio | Designed by Me</p>
+    </footer>
 
 </body>
 </html>
