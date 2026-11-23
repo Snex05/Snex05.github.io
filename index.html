@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile | Portfolio</title>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
 
     <style>
         * {
@@ -19,6 +20,8 @@
             background: #0f172a;
             color: #e2e8f0;
             line-height: 1.7;
+            min-width: 280px;
+            overflow-x: hidden;
         }
 
         /* Navigation */
@@ -115,6 +118,13 @@
 
         .btn:hover {
             background: #0369a1;
+        }
+
+        .lucide {
+            width: 1em;
+            height: 1em;
+            stroke-width: 2;
+            vertical-align: -0.12em;
         }
 
         /* About */
@@ -307,34 +317,56 @@
 
         .project-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 25px;
         }
 
         .project-card {
             background: #0f172a;
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
             border: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card img {
             width: 100%;
-            height: 180px;
+            aspect-ratio: 16 / 9;
             object-fit: cover;
         }
 
         .project-info {
             padding: 20px;
+            border-top: 3px solid #38bdf8;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
 
         .project-info h3 {
             color: #38bdf8;
             margin-bottom: 10px;
+            font-size: 17px;
         }
 
         .project-info p {
             color: #94a3b8;
+        }
+
+        .project-label {
+            display: inline-block;
+            color: #94a3b8;
+            font-size: 12px;
+            margin-bottom: 7px;
+        }
+
+        .project-card .btn {
+            padding: 9px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            align-self: flex-start;
+            margin-top: auto;
         }
 
         /* Education */
@@ -509,27 +541,75 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            section {
+                padding-left: 7%;
+                padding-right: 7%;
+            }
+
+            .project-container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .activity-container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .profile-img {
+                width: 320px;
+                height: 320px;
+            }
+
+            .home-text h1 {
+                font-size: 48px;
+            }
+        }
+
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
                 gap: 10px;
+                padding: 10px 4%;
             }
 
             nav ul {
-                flex-wrap: wrap;
+                width: 100%;
+                flex-wrap: nowrap;
                 justify-content: center;
                 gap: 12px;
                 font-size: 13px;
+                overflow-x: auto;
+                white-space: nowrap;
+                padding: 2px 0;
+                scrollbar-width: none;
+            }
+
+            nav ul::-webkit-scrollbar {
+                display: none;
+            }
+
+            nav ul li a {
+                display: block;
+                min-height: 36px;
+                padding: 8px 4px;
             }
 
             #home {
                 flex-direction: column-reverse;
                 text-align: center;
-                padding-top: 150px;
+                justify-content: center;
+                min-height: auto;
+                padding-top: 155px;
+                padding-bottom: 70px;
             }
 
             .home-text h1 {
                 font-size: 32px;
+            }
+
+            .home-text p {
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .profile-img {
@@ -539,6 +619,124 @@
 
             section {
                 padding: 80px 6%;
+            }
+
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 28px;
+            }
+
+            .project-container,
+            .activity-container,
+            .contact-container,
+            .skills-container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .project-card img,
+            .activity-card img {
+                aspect-ratio: 16 / 10;
+                height: auto;
+            }
+
+            .about-header {
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .logo {
+                font-size: 20px;
+            }
+
+            nav ul {
+                justify-content: flex-start;
+                padding: 2px 2%;
+            }
+
+            section {
+                padding: 65px 5%;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .project-container,
+            .activity-container,
+            .contact-container,
+            .skills-container,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-container,
+            .activity-container {
+                gap: 18px;
+            }
+
+            .project-card img {
+                aspect-ratio: 16 / 9;
+            }
+
+            .project-info,
+            .activity-info {
+                padding: 18px;
+            }
+
+            .project-card .btn {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .education-box,
+            .about-card,
+            .location-box {
+                padding: 18px;
+            }
+
+            .about-header {
+                flex-direction: column;
+            }
+
+            .about-goal {
+                text-align: left;
+            }
+
+            .contact-card {
+                min-height: 82px;
+                gap: 14px;
+            }
+
+            .contact-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            section {
+                padding-left: 4%;
+                padding-right: 4%;
+            }
+
+            .home-text h1 {
+                font-size: 27px;
+            }
+
+            .profile-img {
+                width: 160px;
+                height: 160px;
+            }
+
+            .interest-list {
+                display: grid;
+            }
+
+            .interest-list span {
+                border-radius: 8px;
             }
         }
     </style>
@@ -589,7 +787,7 @@
 
         <!-- ชื่อและแนะนำตัว -->
         <div class="about-header">
-            <div class="about-icon">👨‍🎓</div>
+            <div class="about-icon"><i data-lucide="graduation-cap"></i></div>
 
             <div>
                 <h2>นาย วัชชิระ ฟองคำ</h2>
@@ -602,33 +800,33 @@
 
         <!-- ข้อมูลส่วนตัว -->
         <div class="about-heading">
-            <h3>📋 ข้อมูลการศึกษา</h3>
+            <h3><i data-lucide="clipboard-list"></i> ข้อมูลการศึกษา</h3>
         </div>
 
         <div class="about-grid">
 
             <div class="about-item">
-                <span>🏛️ คณะ</span>
+                <span><i data-lucide="landmark"></i> คณะ</span>
                 <p>วิทยาศาสตร์</p>
             </div>
 
             <div class="about-item">
-                <span>💻 สาขาวิชา</span>
+                <span><i data-lucide="code-xml"></i> สาขาวิชา</span>
                 <p>วิทยาการคอมพิวเตอร์</p>
             </div>
 
             <div class="about-item">
-                <span>📊 กลุ่มวิชา</span>
+                <span><i data-lucide="chart-no-axes-combined"></i> กลุ่มวิชา</span>
                 <p>Data Science</p>
             </div>
 
             <div class="about-item">
-                <span>🎓 ชั้นปี</span>
+                <span><i data-lucide="school"></i> ชั้นปี</span>
                 <p>ปีที่ 3</p>
             </div>
 
             <div class="about-item full-width">
-                <span>🏫 มหาวิทยาลัย</span>
+                <span><i data-lucide="building-2"></i> มหาวิทยาลัย</span>
                 <p>มหาวิทยาลัยราชภัฏอุดรธานี</p>
             </div>
 
@@ -638,22 +836,22 @@
 
         <!-- ความสนใจ -->
         <div class="about-heading">
-            <h3>💡 ความสนใจด้านเทคโนโลยี</h3>
+            <h3><i data-lucide="lightbulb"></i> ความสนใจด้านเทคโนโลยี</h3>
         </div>
 
         <div class="interest-list">
-            <span>🐍 Python Programming</span>
-            <span>🤖 Machine Learning</span>
-            <span>📈 Data Science</span>
-            <span>🌐 Web Development</span>
-            <span>📊 Data Analysis</span>
+            <span><i data-lucide="braces"></i> Python Programming</span>
+            <span><i data-lucide="bot"></i> Machine Learning</span>
+            <span><i data-lucide="database"></i> Data Science</span>
+            <span><i data-lucide="globe"></i> Web Development</span>
+            <span><i data-lucide="chart-column"></i> Data Analysis</span>
         </div>
 
         <hr>
 
         <!-- เป้าหมาย -->
         <div class="about-heading">
-            <h3>🎯 เป้าหมายและสิ่งที่สนใจ</h3>
+            <h3><i data-lucide="target"></i> เป้าหมายและสิ่งที่สนใจ</h3>
         </div>
 
         <p class="about-goal">
@@ -723,6 +921,7 @@
             <div class="project-card">
                 <img src="Bank.jpeg" alt="Loan Approval">
                 <div class="project-info">
+                    <span class="project-label">Project 01</span>
                     <h3>Loan Approval Prediction</h3>
                     <p>
                         ระบบจำแนกและทำนายผลการอนุมัติสินเชื่อ
@@ -730,7 +929,7 @@
                     </p>
                     <p>Python / KNN / SVM / Decision Tree / Naive Bayes</p>
                     <a href="https://loanapprovalclassification-xcv4ptbukan368b3h5mmav.streamlit.app/"target="_blank"rel="noopener noreferrer"class="btn">
-            View Project ↗
+                        <i data-lucide="external-link"></i> ดูโปรเจกต์
                     </a>
                 </div>
             </div>
@@ -738,6 +937,7 @@
             <div class="project-card">
                 <img src="Flower.jpeg" alt="Flower Species Classifier">
                 <div class="project-info">
+                    <span class="project-label">Project 02</span>
                     <h3>Flower Species Classifier</h3>
                     <p>
                         ระบบจำแนกชนิดของดอกไม้
@@ -745,7 +945,7 @@
                     </p>
                     <p>Python / Support Vector Machine (SVM) + RBF Kernel + GridSearchCV </p>
                     <a href="https://flower-svm-app-q59vzgzes8pwhvgljbzd7b.streamlit.app/"target="_blank"rel="noopener noreferrer"class="btn">
-            View Project ↗
+                        <i data-lucide="external-link"></i> ดูโปรเจกต์
                     </a>
                 </div>
             </div>
@@ -753,6 +953,7 @@
             <div class="project-card">
                 <img src="Email.jpeg" alt="Flower Species Classifier">
                 <div class="project-info">
+                    <span class="project-label">Project 03</span>
                     <h3>Spam Detection</h3>
                     <p>
                         ระบบจำแนกชนิดของข้อความสแปม
@@ -760,7 +961,7 @@
                     </p>
                     <p>Python / Decision Tree </p>
                     <a href="https://spamdetectiontree-4zxjtitmpx7hpelzkuymgo.streamlit.app/"target="_blank"rel="noopener noreferrer"class="btn">
-            View Project ↗
+                        <i data-lucide="external-link"></i> ดูโปรเจกต์
                     </a>
                 </div>
             </div>
@@ -768,6 +969,7 @@
             <div class="project-card">
                 <img src="Car.jpeg" alt="Flower Species Classifier">
                 <div class="project-info">
+                    <span class="project-label">Project 04</span>
                     <h3>Car Evaluation</h3>
                     <p>
                         ระบบประเมินคุณภาพของรถยนต์
@@ -775,7 +977,7 @@
                     </p>
                     <p>Python / Naive Bayes </p>
                     <a href="https://carevaluation-bcq54pk2abucu2swtskwsf.streamlit.app/"target="_blank"rel="noopener noreferrer"class="btn">
-            View Project ↗
+                        <i data-lucide="external-link"></i> ดูโปรเจกต์
                     </a>
                 </div>
             </div>
@@ -783,6 +985,7 @@
             <div class="project-card">
                 <img src="Penguin.jpeg" alt="Flower Species Classifier">
                 <div class="project-info">
+                    <span class="project-label">Project 05</span>
                     <h3>Penguin Classification</h3>
                     <p>
                         ระบบจำแนกชนิดของเพนกวิน
@@ -790,7 +993,7 @@
                     </p>
                     <p>Python / K-Nearest Neighbors </p>
                     <a href="https://penguinsknn-jkqscuyxgrggmhgmzzw66c.streamlit.app/"target="_blank"rel="noopener noreferrer"class="btn">
-            View Project ↗
+                        <i data-lucide="external-link"></i> ดูโปรเจกต์
                     </a>
                 </div>
             </div>
@@ -798,6 +1001,7 @@
             <div class="project-card">
                 <img src="Water.jpeg" alt="Flower Species Classifier">
                 <div class="project-info">
+                    <span class="project-label">Project 06</span>
                     <h3>Water Quality Assessment</h3>
                     <p>
                         ระบบประเมินคุณภาพน้ำ
@@ -806,11 +1010,11 @@
                     </p>
                     <p>Python / Decision Tree / Naive Bayes / KNN / ANN </p>
                     <a href="https://water-potability-ckanvbw4jqgswtil7treeg.streamlit.app/"target="_blank"rel="noopener noreferrer"class="btn">
-            View Project ↗
+                        <i data-lucide="external-link"></i> ดูโปรเจกต์
                     </a>
                 </div>
             </div>
-            
+
         </div>
     </section>
 
@@ -819,19 +1023,19 @@
         <h2 class="section-title">Education</h2>
 
         <div class="education-box">
-            <h3>📚ระดับชั้นอนุบาล-ประถมศึกษา</h3>
+            <h3><i data-lucide="book-open"></i> ระดับชั้นอนุบาล-ประถมศึกษา</h3>
             <p>โรงเรียนบ้านหนองบัวเงินหนองบัวทอง</p>
             <br>
 
-            <h3>🏫ระดับชั้นมัธยมศึกษาตอนต้น</h3>
+            <h3><i data-lucide="school"></i> ระดับชั้นมัธยมศึกษาตอนต้น</h3>
             <p>โรงเรียนประจักษ์ศิลปาคาร</p>
             <br>
 
-            <h3>🏫ระดับชั้นมัธยมศึกษาตอนปลาย</h3>
+            <h3><i data-lucide="school"></i> ระดับชั้นมัธยมศึกษาตอนปลาย</h3>
             <p>โรงเรียนประจักษ์ศิลปาคาร</p>
             <br>
 
-            <h3>🎓ระดับปริญญาตรี</h3>
+            <h3><i data-lucide="graduation-cap"></i> ระดับปริญญาตรี</h3>
             <p>คณะวิทยาศาสตร์</p>
             <p>สาขาวิทยาการคอมพิวเตอร์</p>
             <p>กลุ่มวิชา Data Science</p>
@@ -888,7 +1092,7 @@
                 <h3>วังแดงเกมส์ ครั้งที่34</h3>
                 <p class="activity-date">ปี พ.ศ. 2567</p>
                 <p>
-                    ได้เข้าร่วมกิจกรรมการแข่งขันกีฬาภายในมหาวิทยาลัย
+                   ได้เข้าร่วมกิจกรรมการแข่งขันกีฬาภายในมหาวิทยาลัย
                     ได้ร่วมเดินขบวน และรับหน้าที่เป็นนผู้แทนสาขาวิทยาการคอมพิวเตอร์ในการถือป้ายสาขาวิชา
                 </p>
             </div>
@@ -937,7 +1141,7 @@
 
         <!-- Activity 7 -->
         <div class="activity-card">
-            <img src="design2.JPG" alt="กิจกรรมที่ 7">
+            <img src="design2.jpg" alt="กิจกรรมที่ 7">
 
             <div class="activity-info">
                 <h3>ออกแบบซุ้มงานบายเนียร์รุ่นพี่</h3>
@@ -955,7 +1159,7 @@
 
 <!-- Contact -->
 <section id="contact">
-    <h2 class="section-title">📬 Contact Me</h2>
+    <h2 class="section-title"><i data-lucide="mail"></i> Contact Me</h2>
 
     <p class="contact-description">
         ช่องทางการติดต่อและติดตามผลงานของฉัน
@@ -966,7 +1170,7 @@
         <!-- Email -->
         <a href="mailto:snewatchira@gmail.com"
            class="contact-card">
-            <div class="contact-icon">📧</div>
+            <div class="contact-icon"><i data-lucide="mail"></i></div>
             <div>
                 <h3>Email</h3>
                 <p>snewatchira@gmail.com</p>
@@ -976,7 +1180,7 @@
         <!-- Facebook -->
         <a href="https://www.facebook.com/watchira.fongcham?locale=th_TH" target="_blank"
            class="contact-card">
-            <div class="contact-icon">📘</div>
+            <div class="contact-icon"><i data-lucide="facebook"></i></div>
             <div>
                 <h3>Facebook</h3>
                 <p>Watchira Fongcham</p>
@@ -988,7 +1192,7 @@
            target="_blank"
            rel="noopener noreferrer"
            class="contact-card">
-            <div class="contact-icon">📸</div>
+            <div class="contact-icon"><i data-lucide="instagram"></i></div>
             <div>
                 <h3>Instagram</h3>
                 <p>_snexx</p>
@@ -997,7 +1201,7 @@
 
         <!-- Line -->
         <div class="contact-card">
-            <div class="contact-icon">💬</div>
+            <div class="contact-icon"><i data-lucide="message-circle"></i></div>
             <div>
                 <h3>Line ID</h3>
                 <p>0633292447</p>
@@ -1009,7 +1213,7 @@
            target="_blank"
            rel="noopener noreferrer"
            class="contact-card">
-            <div class="contact-icon">💻</div>
+            <div class="contact-icon"><i data-lucide="github"></i></div>
             <div>
                 <h3>GitHub</h3>
                 <p>Snex05</p>
@@ -1019,7 +1223,7 @@
         <!-- Phone -->
         <a href="tel:0633292447"
            class="contact-card">
-            <div class="contact-icon">📱</div>
+            <div class="contact-icon"><i data-lucide="phone"></i></div>
             <div>
                 <h3>Phone</h3>
                 <p>063-329-2447</p>
@@ -1030,12 +1234,12 @@
 
     <!-- Location -->
     <div class="location-box">
-        <h3>📍 Location</h3>
+        <h3><i data-lucide="map-pin"></i> Location</h3>
         <p>อุดรธานี ประเทศไทย</p>
     </div>
 
     <p class="contact-footer">
-        ✨ Feel free to contact me!
+        Feel free to contact me
     </p>
 </section>
 
@@ -1043,5 +1247,10 @@
         <p>© 2026 My Portfolio | Designed by Me</p>
     </footer>
 
+<script>
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+</script>
 </body>
 </html>
